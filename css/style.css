@@ -7,8 +7,16 @@
 
 * {
   box-sizing: border-box;
-  /*width , height 속성이 박스 테두리 까지 포함하게 됨. 
-  보통은 element 만 지칭.*/
+  /* 
+   의미는 box width 가 컨텐츠가 아니라 전체 border까지 다포함한다는거
+   
+  일반적으로 CSS 는 padding 을 추가하면 content가 300px 이고 padding 이 0이며 
+  박스도 300px 이라면 20px 패딩왼쪽 주면 320px 되버림
+  근데 border-box 해주면 컨텐츠가 280px 로 되버림. 전체 박스는 300px.
+  내부의 컨텐츠는 icon들이 있는경우 서로 밀리겠지
+  그래서 nav-bar 에서 width 100% 인데 50px 패딩을 줘버리나까, 컨텐츠가 꽉찬상태에서
+   100% + 50px 이 되버려서 넘어간것.
+  */
 }
 
 body {
