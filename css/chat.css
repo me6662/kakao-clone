@@ -1,5 +1,17 @@
+.header-wrapper {
+  background-color: white;
+  padding: 5px 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+    0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
 .chats-body {
   padding: 0px;
+
+  padding-top: 100px;
 }
 
 .chats-body .header {
@@ -9,15 +21,14 @@
   padding: 0px 20px;
 }
 
-.chat-screen {
+.chats-body {
   background-image: url("../images/chatBg.png");
-  min-height: 100vh;
+  min-height: 1000vh;
 }
 
-.chat__write {
+.chat__write-container {
   position: fixed;
-  bottom: 50px;
-  width: 80%;
+  bottom: 0px;
 
   display: flex;
   justify-content: space-between;
@@ -27,11 +38,59 @@
   left: 0;
   right: 0;
 
-  background-color: #fcfcfc;
-  padding: 0px 20px;
+  width: 100%;
+}
+
+.chat__write {
+  bottom: 0px;
+  width: 100%;
+  border-radius: 0;
+  padding: 20px 60px;
+  border: none;
+  font-size: 14px;
+  margin: 0 auto;
+  transition: width 0.5s ease-in, border-radius 0.5s ease-in,
+    transform 0.5s ease-in;
+
+  /* ease-in will start the animation slowly, and finish at full speed.
+ease-out will start the animation at full speed, then finish slowly.
+ease-in-out will start slowly, be fastest at the middle of the animation, then finish slowly. */
+}
+
+.chat__write:focus {
+  outline: none;
+  width: 80%;
+
   border-radius: 40px;
+  transform: translateY(-100px);
   box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
     0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  /* "0 auto" 는 상단과 하단은 여백을 주지 말고, 좌측과 우측의 여백을 자동으로(auto) 주라는 것이죠. */
+}
+
+.chat__write:focus ~ .chat__icon {
+  /*pseudo selector 로 sibling(in the css, something next to it) 
+  을 선택할 수 있는데, HTML 상에서 자신의 밑에 있는 애들만 선택 가능임.*/
+  opacity: 0;
+}
+
+.chat__icon {
+  font-size: 22px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.chat__icon-left {
+  position: absolute;
+  left: 10px;
+  /* absolute
+relative가 static인 상태를 기준으로 주어진 픽셀만큼 움직였다면, 
+absolute는 position: static 속성을 가지고 있지 않은 부모를 기준으로 움직입니다. 
+만약 부모 중에 포지션이 relative, absolute, fixed인 태그가 없다면 가장 위의 태그(body)가 기준이 됩니다. */
+}
+
+.chat__icon-right {
+  position: absolute;
+  right: 10px;
 }
 
 .chat__write i {
@@ -46,9 +105,6 @@
   padding: 20px 10px;
   border: none;
   font-size: 14px;
-}
-.chat__write-column input:focus {
-  outline: none;
 }
 
 .chat-screen .chat__messages {
@@ -110,11 +166,13 @@
 
 .message .message__bubble {
   background-color: white;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   padding: 10px 20px;
   border-radius: 30px;
   display: block;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(0, 0, 0, 0.024) 0px -6px 16px -6px;
 }
 
 .incoming-message .message__bubble {
