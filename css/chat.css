@@ -23,7 +23,7 @@
 
 .chats-body {
   background-image: url("../images/chatBg.png");
-  min-height: 1000vh;
+  min-height: 100vh;
 }
 
 .chat__write-container {
@@ -54,7 +54,29 @@
 
   /* ease-in will start the animation slowly, and finish at full speed.
 ease-out will start the animation at full speed, then finish slowly.
-ease-in-out will start slowly, be fastest at the middle of the animation, then finish slowly. */
+ease-in-out will start slowly, be fastest at the middle of the animation, then finish slowly. 
+linear : 애니메이션 효과가 처음부터 끝까지 일정한 속도로 진행됩니다.*/
+}
+
+@keyframes float {
+  0% {
+    /* transform: translateY(-100px); */
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  50% {
+    /* transform: translateY(-110px); */
+    box-shadow: 0 30px 60px -60px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  100% {
+    /* transform: translateY(-100px); */
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
 }
 
 .chat__write:focus {
@@ -63,8 +85,7 @@ ease-in-out will start slowly, be fastest at the middle of the animation, then f
 
   border-radius: 40px;
   transform: translateY(-100px);
-  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
-    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  animation: float 3s linear infinite forwards;
   /* "0 auto" 는 상단과 하단은 여백을 주지 말고, 좌측과 우측의 여백을 자동으로(auto) 주라는 것이죠. */
 }
 
@@ -83,7 +104,7 @@ ease-in-out will start slowly, be fastest at the middle of the animation, then f
   position: absolute;
   left: 10px;
   /* absolute
-relative가 static인 상태를 기준으로 주어진 픽셀만큼 움직였다면, 
+relative가 static인 상태 (default 상태)를 기준으로 주어진 픽셀만큼 움직였다면, 
 absolute는 position: static 속성을 가지고 있지 않은 부모를 기준으로 움직입니다. 
 만약 부모 중에 포지션이 relative, absolute, fixed인 태그가 없다면 가장 위의 태그(body)가 기준이 됩니다. */
 }
@@ -187,4 +208,35 @@ absolute는 position: static 속성을 가지고 있지 않은 부모를 기준�
   background-image: linear-gradient(to left, #65c7f7, #0052d4);
   color: white;
   font-weight: 600;
+}
+
+@keyframes incomingAnime {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.incoming-message {
+  animation: incomingAnime 0.5s ease-out forwards;
+  /*forwards : keyframes 의 마지막 value를 계속 유지함.*/
+}
+
+@keyframes sentAnime {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sent-message {
+  animation: sentAnime 0.5s ease-out forwards;
 }
