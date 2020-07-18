@@ -1,0 +1,37 @@
+.bigScreen {
+  position: fixed;
+  /* 
+  absolute : 현재 바로 부모 블럭인 body 를 기준으로 width, height,
+top, left 가 적용되게 됨.
+
+만약 default 값인 static 이였다면
+width ,height 은 span 이므로 글자 크기에 맞춰서 맞춰짐
+(width 는 flex , justify-content: center 이므로 100% 됨)
+
+그리고 top left 는 적용이 되지 않는다. */
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+  background-color: #fce006;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  padding: 0px 20px;
+
+  display: none;
+  z-index: 4;
+}
+
+@media screen and (min-width: 550px) {
+  .bigScreen {
+    display: flex;
+  }
+}

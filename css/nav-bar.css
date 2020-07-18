@@ -38,3 +38,28 @@
   border-radius: 50%;
   font-size: 10px;
 }
+
+@keyframes showNavBar {
+  from {
+    transform: translateY(80px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.nav {
+  transform: translateY(80px);
+  animation: showNavBar 0.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+/* 
+1. linear : 전환(transition) 효과가 처음부터 끝까지 일정한 속도로 진행됩니다.
+
+2. ease : 기본값으로, 전환(transition) 효과가 천천히 시작되어, 그다음에는 빨라지고, 마지막에는 다시 느려집니다.
+
+3. ease-in : 전환(transition) 효과가 천천히 시작됩니다.
+
+4. ease-out : 전환(transition) 효과가 천천히 끝납니다.
+
+5. ease-in-out : 전환(transition) 효과가 천천히 시작되어, 천천히 끝납니다. */

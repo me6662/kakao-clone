@@ -2,6 +2,7 @@
   background-color: white;
   padding: 5px 0px;
   position: fixed;
+  z-index: 1;
   top: 0px;
   width: 100%;
   box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
@@ -23,7 +24,7 @@
 
 .chats-body {
   background-image: url("../images/chatBg.png");
-  min-height: 100vh;
+  min-height: 1000vh;
 }
 
 .chat__write-container {
@@ -51,11 +52,6 @@
   margin: 0 auto;
   transition: width 0.5s ease-in, border-radius 0.5s ease-in,
     transform 0.5s ease-in;
-
-  /* ease-in will start the animation slowly, and finish at full speed.
-ease-out will start the animation at full speed, then finish slowly.
-ease-in-out will start slowly, be fastest at the middle of the animation, then finish slowly. 
-linear : 애니메이션 효과가 처음부터 끝까지 일정한 속도로 진행됩니다.*/
 }
 
 @keyframes float {
@@ -159,10 +155,23 @@ absolute는 position: static 속성을 가지고 있지 않은 부모를 기준�
   margin-bottom: 20px;
 }
 
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
 .incoming-message img {
   width: 50px;
   border-radius: 15px;
   margin-right: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(0, 0, 0, 0.024) 0px -6px 16px -6px;
+  animation: spin 1s linear infinite;
 }
 
 .incoming-message .message__author {
